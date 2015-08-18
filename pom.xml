@@ -6,7 +6,7 @@
 
     <groupId>com.starfire1337.XenRegister</groupId>
     <artifactId>XenRegister</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-b${env.BUILD_NUMBER}</version>
 
     <build>
         <plugins>
@@ -19,6 +19,15 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <includes>
+                    <include>plugin.yml</include>
+                </includes>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
     <repositories>
