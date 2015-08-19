@@ -1,0 +1,7 @@
+port: 8384
+
+password: changeme
+
+commands:
+  - "say Thank you {name} for registering on our forums!"
+  - "give {name} diamondblock 10"

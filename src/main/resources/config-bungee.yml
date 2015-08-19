@@ -1,0 +1,6 @@
+port: 8384
+
+password: changeme
+
+commands:
+  - "alert Thank you {name} for registering on our website!"

@@ -1,0 +1,5 @@
+name: XenRegister
+author: Starfire1337
+main: com.starfire1337.xenregister.bungee.XenRegister
+version: ${version}
+description: Reward users for registering on the forums!
