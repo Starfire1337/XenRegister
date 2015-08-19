@@ -6,7 +6,11 @@
 
     <groupId>com.starfire1337.XenRegister</groupId>
     <artifactId>XenRegister</artifactId>
+<<<<<<< HEAD
     <version>1.1.2-b${env.BUILD_NUMBER}</version>
+=======
+    <version>1.0.0-b${env.BUILD_NUMBER}</version>
+>>>>>>> e0c7df7b16b74afe27d9359e19384f8fe9fa445d
 
     <build>
         <plugins>
@@ -22,7 +26,11 @@
         <resources>
             <resource>
                 <includes>
+<<<<<<< HEAD
                     <include>*.yml</include>
+=======
+                    <include>plugin.yml</include>
+>>>>>>> e0c7df7b16b74afe27d9359e19384f8fe9fa445d
                 </includes>
                 <directory>${basedir}/src/main/resources</directory>
                 <filtering>true</filtering>
@@ -35,10 +43,13 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
+<<<<<<< HEAD
         <repository>
             <id>bungeecord-repo</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
+=======
+>>>>>>> e0c7df7b16b74afe27d9359e19384f8fe9fa445d
     </repositories>
 
     <dependencies>
@@ -48,6 +59,7 @@
             <version>1.8.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+<<<<<<< HEAD
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
@@ -55,6 +67,8 @@
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
+=======
+>>>>>>> e0c7df7b16b74afe27d9359e19384f8fe9fa445d
     </dependencies>
 
 </project>
