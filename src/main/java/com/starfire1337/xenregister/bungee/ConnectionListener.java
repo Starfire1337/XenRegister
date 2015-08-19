@@ -1,6 +1,8 @@
 package com.starfire1337.xenregister.bungee;
 
 import com.starfire1337.xenregister.SocketUtils;
+import com.starfire1337.xenregister.bungee.events.XenForoRegisterEvent;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,6 +32,13 @@ public class ConnectionListener {
                         final String p = socketUtils.getUser(msg);
                         if(!p.isEmpty()) {
                             List<String> commands = XenRegister.getConfig().getStringList("commands");
+                            ProxiedPlayer player = XenRegister.getInstance().getProxy().getPlayer(p);
+                            if(player == null) {
+                                return;
+                            }
+                            XenForoRegisterEvent event = new XenForoRegisterEvent(player, commands);
+                            XenRegister.getInstance().getProxy().getPluginManager().callEvent(event);
+
                             for(String command : commands) {
                                 XenRegister.getInstance().getProxy().getPluginManager().dispatchCommand(XenRegister.getInstance().getProxy().getConsole(), command.replace("{name}", p));
                             }

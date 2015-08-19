@@ -1,6 +1,8 @@
 package com.starfire1337.xenregister.spigot;
 
 import com.starfire1337.xenregister.SocketUtils;
+import com.starfire1337.xenregister.spigot.events.XenForoRegisterEvent;
+import org.bukkit.entity.Player;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,6 +34,13 @@ public class ConnectionListener {
                             XenRegister.getInstance().getServer().getScheduler().scheduleSyncDelayedTask(XenRegister.getInstance(), new Runnable() {
                                 public void run() {
                                     List<String> commands = XenRegister.getInstance().getConfig().getStringList("commands");
+                                    Player player = XenRegister.getInstance().getServer().getPlayer(p);
+                                    if(player == null) {
+                                        return;
+                                    }
+                                    XenForoRegisterEvent event = new XenForoRegisterEvent(player, commands);
+                                    XenRegister.getInstance().getServer().getPluginManager().callEvent(event);
+                                    commands = event.getCommands();
                                     for(String command : commands) {
                                         XenRegister.getInstance().getServer().dispatchCommand(XenRegister.getInstance().getServer().getConsoleSender(), command.replace("{name}", p));
                                     }
